@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/departements',[\App\Http\Controllers\DepartementController::class,'index'])->name('departements.index');
+Route::get('/departements/create',[\App\Http\Controllers\DepartementController::class,'create'])->name('departements.create');
+Route::post('/departements/store',[\App\Http\Controllers\DepartementController::class,'store'])->name('departements.store');
+Route::get('/departements/edit/{id}',[\App\Http\Controllers\DepartementController::class,'edit'])->name('departements.edit');
+Route::put('/departements/update/{id}',[\App\Http\Controllers\DepartementController::class,'update'])->name('departements.update');
+Route::delete('/departements/destroy/{id}',[\App\Http\Controllers\DepartementController::class,'destroy'])->name('departements.destroy');
