@@ -14,7 +14,7 @@ class Employee extends Model
     ];
     public function getDepartement()
     {
-        return $this->belongsTo(Departement::class);
+        return $this->belongsTo(Departement::class,'dept_id');
     }
 }
 

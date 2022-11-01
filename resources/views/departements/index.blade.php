@@ -22,8 +22,8 @@
         <tr>
             <td>{{$departement->id}}</td>
             <td>{{$departement->nameD}} </td>
-
-           <td><button type="button" class="btn btn-warning">
+            
+            <td><button type="button" class="btn btn-warning">
             <a href="{{route('departements.edit',['id'=> $departement->id])}}">Edit</a> 
               </button><br>
                 <form action="{{ route('departements.destroy', $departement->id)}}" method="post">

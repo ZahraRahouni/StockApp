@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Departement;
+use App\Models\Employee;
+
 
 class DepartementController extends Controller
 {
@@ -15,6 +17,8 @@ class DepartementController extends Controller
     public function index()
     {
         $departements= Departement::all();
+       
+        
         return view('departements.index',compact('departements'));
 
     }

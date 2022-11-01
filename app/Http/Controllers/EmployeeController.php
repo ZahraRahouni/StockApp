@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Employee;
+use App\Models\Departement;
+
 
 class EmployeeController extends Controller
 {
@@ -14,7 +17,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees= Employee::all();
-        return view('/emlpyees.index',compact('employees'));
+        return view('employees.index',compact('employees'));
     }
 
     /**
@@ -24,7 +27,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employees.create');// A RETENIR
+        $departements= Departement::all();
+        return view('employees.create',compact('departements'));// A RETENIR
 
     }
 
@@ -37,12 +41,21 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nameE'->request('nameE'),
-            'age'->request('age'),
-            'dept_id'->request('dept_id')
+            'nameE'=>'required',
+            'age'=>'required',
+            'dept_id'=>'required'
 
         ]);
         
+        $employee= new employee([
+            'nameE'=>$request->get('nameE'),
+            'age'=>$request->get('age'),
+            'dept_id'=>$request->get('dept_id'),
+
+        ]);
+        // dd($employee);
+        $employee->save();
+        return redirect('/employees');
 
     }
 
@@ -65,7 +78,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee= Employee::find($id);
+        return view('employees.edit',compact('employee'));
     }
 
     /**
@@ -77,7 +91,20 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nameE'=>'required',
+            'age'=>'required',
+            'dept_id'=>'required'
+
+        ]);
+        
+        $employee= Employee::find($id);
+        $departement->nameE=$request->get('nameE');
+        $departement->age = $request->get('age');
+        $departement->dept_id = $request->get('dept_id');
+     
+        $employee->save();
+        return redirect('/employees');
     }
 
     /**
@@ -88,6 +115,8 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee= Employee::find($id);
+        $employee->delete();
+        return redirect('/employees');
     }
 }
