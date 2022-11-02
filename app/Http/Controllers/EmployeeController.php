@@ -53,7 +53,6 @@ class EmployeeController extends Controller
             'dept_id'=>$request->get('dept_id'),
 
         ]);
-        // dd($employee);
         $employee->save();
         return redirect('/employees');
 
@@ -99,9 +98,9 @@ class EmployeeController extends Controller
         ]);
         
         $employee= Employee::find($id);
-        $departement->nameE=$request->get('nameE');
-        $departement->age = $request->get('age');
-        $departement->dept_id = $request->get('dept_id');
+        $employee->nameE=$request->get('nameE');
+        $employee->age = $request->get('age');
+        $employee->dept_id = $request->get('dept_id');
      
         $employee->save();
         return redirect('/employees');

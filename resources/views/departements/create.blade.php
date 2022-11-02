@@ -11,6 +11,6 @@
               <input type="text" class="form-control" name="nameD"/>
           </div>
  
-          <button type="submit" class="btn btn-primary">Add Departement</button>
-      </form>
+            <button type="submit" class="btn btn-primary">Add Departement</button>
+</form>
 @endsection

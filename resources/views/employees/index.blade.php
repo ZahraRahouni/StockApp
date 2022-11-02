@@ -27,9 +27,8 @@
             <td>{{$employee->age}} </td>
             <td>{{$employee->getDepartement->nameD}} </td>
             <td> 
-              <button type="button" class="btn btn-warning">
-              <a href="{{route('employees.edit',['id'=> $employee->id])}}">Edit</a> 
-            </button><br>
+            <a href="{{route('employees.edit',['id'=> $employee->id])}}"class="btn btn-primary mb-3">Edit</a>
+
                 <form action="{{ route('employees.destroy', $employee->id)}}" method="post">
                     @csrf
                     @method('DELETE')

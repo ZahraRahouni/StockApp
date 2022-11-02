@@ -15,8 +15,8 @@
               <input type="text" class="form-control" name="age"/>
           </div>
           <div class="form-group">    
-              <label for="nameD">Departement :*</label>
-              <select name="nameD" id="nameD">
+              <label for="dept_id">Departement :*</label>
+              <select name="dept_id" id="dept_id">
                 <option value=""></option>
                 @foreach($departements as $departement)
                 <option value="{{$departement->id}}">{{$departement->nameD}}</option>
