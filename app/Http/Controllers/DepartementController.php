@@ -53,23 +53,7 @@ class DepartementController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function edit($id)
     {
         $departement= Departement::find($id);
@@ -107,5 +91,11 @@ class DepartementController extends Controller
         $departement= Departement::find($id);
         $departement->delete();
         return redirect('/departements');
+    }
+
+    public function showAllEmp($id)
+    {
+        $departements= Departement::find($id);
+        return view('departements.showAllEmp',compact('departements'));
     }
 }

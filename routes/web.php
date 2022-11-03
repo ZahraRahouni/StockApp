@@ -24,6 +24,9 @@ Route::post('/departements/store',[\App\Http\Controllers\DepartementController::
 Route::get('/departements/edit/{id}',[\App\Http\Controllers\DepartementController::class,'edit'])->name('departements.edit');
 Route::put('/departements/update/{id}',[\App\Http\Controllers\DepartementController::class,'update'])->name('departements.update');
 Route::delete('/departements/destroy/{id}',[\App\Http\Controllers\DepartementController::class,'destroy'])->name('departements.destroy');
+Route::get('/departements/showAllEmp/{id}',[\App\Http\Controllers\DepartementController::class,'showAllEmp'])->name('departements.showAllEmp');
+
+
 
 //Employees
 Route::get('/employees',[\App\Http\Controllers\EmployeeController::class,'index'])->name('employees.index');
@@ -49,3 +52,9 @@ Route::post('/categories/store',[\App\Http\Controllers\CategoryController::class
 Route::get('/categories/edit/{id}',[\App\Http\Controllers\CategoryController::class,'edit'])->name('categories.edit');
 Route::put('/categories/update/{id}',[\App\Http\Controllers\CategoryController::class,'update'])->name('categories.update');
 Route::delete('/categories/destroy/{id}',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/base', [App\Http\Controllers\UserController::class, 'index'])->name('base');

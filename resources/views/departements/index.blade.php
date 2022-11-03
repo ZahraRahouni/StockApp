@@ -13,6 +13,7 @@
         <tr>
           <td>ID</td>
           <td>Departement Name</td>
+          <td>Employees </td>
           <td> Action</td>
 
         </tr>
@@ -22,7 +23,8 @@
         <tr>
             <td>{{$departement->id}}</td>
             <td>{{$departement->nameD}} </td>
-            
+            <td><a href="{{route('departements.showAllEmp',['id'=> $departement->id])}}">list of employees</a>
+            </td>
             <td>
               <a href="{{route('departements.edit',['id'=> $departement->id])}}"class="btn btn-primary mb-3">Edit</a>
 
