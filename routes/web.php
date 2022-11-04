@@ -57,4 +57,4 @@ Route::delete('/categories/destroy/{id}',[\App\Http\Controllers\CategoryControll
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/base', [App\Http\Controllers\UserController::class, 'index'])->name('base');
+Route::get('/base', [App\Http\Controllers\UserController::class, 'index'])->name('base')->middleware('App\Http\Middleware\mwTest');

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\mwTest;
+
+
 
 
 class UserController extends Controller
@@ -18,14 +21,18 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->middleware('mwTest');
     }
 
 
     public function index()
-    {  if(Auth::user()->role == 'default')
-        return redirect('/home');
-        if (Auth::user()->role == 'admin')
-        return redirect('/base');
+     {  //if(Auth::user()->role == 'default')
+    //     return redirect()->route('home');
+
+         dd('ss');
+    //    if (Auth::user()->role == 'admin')
+    //     return view('base');
 
 
     }
